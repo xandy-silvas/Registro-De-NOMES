@@ -9,6 +9,7 @@ int registro(){
 	char nome[40];
 	char sobrenome[40];
 	char cargo[40];
+	int saida = 0;
 	
 	setlocale(LC_ALL, "Portuguese");
 	
@@ -63,6 +64,18 @@ int registro(){
 	fprintf(file, ".");
 	fclose(file);
 	
+	
+	printf("\ndeseja realizar outra operação digite?\n1 para sim\n2 para não");
+	printf("\nDigite:");
+	scanf("%d", &saida);
+	
+	if(saida == 1){
+		main();
+	}
+	else{
+		printf("\tObrigador por usar o nosso programa!!!=)\n");
+		exit (0);
+	}
 	system("pause");
 }
 
@@ -73,6 +86,7 @@ int consulta(){
 	
 	char cpf[40];
 	char conteudo[200];
+	int saida = 0;
 	
 	setlocale(LC_ALL, "Portuguese");
 	
@@ -92,12 +106,26 @@ int consulta(){
 		printf("\n\n");
 	}
 	
+	printf("\ndeseja realizar outra operação digite?\n1 para sim\n2 para não");
+	printf("\nDigite:");
+	scanf("%d", &saida);
+	
+	
+	if(saida == 1){
+		main();
+	}
+	else{
+		printf("\tObrigador por usar o nosso programa!!!=)\n");
+		exit (0);
+	}
+	
 	system("pause");
 }
 
 
 int deletar(){
 	char cpf[40];
+	int saida = 0;
 	
 	printf("Digite o ID a ser deletado: ");
 	scanf("%f", cpf);
@@ -114,6 +142,17 @@ int deletar(){
 		system("pause");
 	}
 	
+	printf("\ndeseja realizar outra operação digite?\n1 para sim\n2 para não");
+	printf("\nDigite:");
+	scanf("%d", &saida);
+	if(saida == 1){
+		main();
+	}
+	else{
+		printf("\tObrigador por usar o nosso programa!!!=)\n");
+		exit (0);
+	}
+	
 }
 
 
@@ -122,55 +161,68 @@ int main(){
 	int x = 1;
 	char senhadigitada[10]="a";
 	int compare;
+	int saida = 0;
 	
 	printf("### Cartório da EBAC ###\n\n");
 	printf("Login de adminstrador!\n\nDigite a senha\n\n");
 	scanf ("%s", &senhadigitada);
 	
 	compare = strcmp (senhadigitada, "admin");
+
 	
-	if(compare == 0){
+		if(compare == 0){
 	
-		for(x = 1; x=1;){
-			system("cls");
+			for(x = 1; x=1;){
+				system("cls");
 		
-			setlocale(LC_ALL, "Portuguese");
+				setlocale(LC_ALL, "Portuguese");
 	
-			printf("### Cartório da EBAC ###\n\n");
-			printf("Selecione a opção deesejada do menu:\n\n");
-			printf("\t1 - Registrar nomes\n"); //  \t é para dar espaço na frente da frase no printf
-			printf("\t2 - Consultar nomes\n");
-			printf("\t3 - Deletar nomes\n");
-			printf("Opção: ");
+				printf("### Cartório da EBAC ###\n\n");
+				printf("Selecione a opção deesejada do menu:\n\n");
+				printf("\t1 - Registrar nomes\n"); //  \t é para dar espaço na frente da frase no printf
+				printf("\t2 - Consultar nomes\n");
+				printf("\t3 - Deletar nomes\n");
+				printf("\t3 - Sair do Sistema\n");
+				printf("Opção: ");
 	
-			scanf("%d", &opcao);
+				scanf("%d", &opcao);
 	
-			system ("cls"); //ele limpa a tela apos alguma ação do usuario
+				system ("cls"); //ele limpa a tela apos alguma ação do usuario
 		
-			switch(opcao){
-				case 1:
-					registro();
-				break;
+				switch(opcao){
+					case 1:
+						registro();
+					break;
 			
-				case 2:
-					consulta();
-				break;
+					case 2:
+						consulta();
+					break;
 			
-				case 3:
-					deletar();
-				break;
+					case 3:
+						deletar();
+					break;
+					
+					case 4:
+						printf("\tObrigador por usar o nosso programa!!!=)\n");
+						exit(0);
+					break;
 			
-				default:
-					printf("### Nenhuma Opção Valida! ###\n\n");
-					system("pause");
-				break;
+					default:
+						printf("### Nenhuma Opção Valida! ###\n\n");
+						system("pause");
+					break;
+				}
 			}
 		}
-	}
+		
+			else {
+				printf("Senha Incorreta!");
+			}
+			
 	
-	else {
-		printf("Senha Incorreta!");
-	}
+
+	
+	
 	
 	
 	return 0;
